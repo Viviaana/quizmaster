@@ -12,7 +12,7 @@ export class LoginPage extends Component {
               <div className ="darkbluecontainer">
                   <div className ="lightbluecontainer">
                     <div className = "logincontainer">
-                        <h1>Log In</h1>
+                        <h1>Sign In</h1>
                         <Form />
                     </div>
                    </div>

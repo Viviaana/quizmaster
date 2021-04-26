@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './LoginPage.css';
-import Form from './Loginform';
-import Header from './Header';
+import Header from './Header'
 
 
-export class LoginPage extends Component {
-   
+export class QuizSelection extends Component {
   render() {
       return (
           <div>
@@ -14,10 +12,7 @@ export class LoginPage extends Component {
               <div className ="darkbluecontainer">
                   <div className ="lightbluecontainer">
                     <div className = "logincontainer">
-                        <h1>Sign In</h1>
-                        <Form 
-                            setRedirect = {this.setRedirect}
-                        />
+                        <h1>Success!</h1>
                     </div>
                    </div>
                 </div>
@@ -27,4 +22,4 @@ export class LoginPage extends Component {
   }
 }
 
-export default LoginPage
+export default QuizSelection

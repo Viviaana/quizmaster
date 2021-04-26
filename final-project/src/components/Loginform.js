@@ -1,44 +1,80 @@
-import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./LoginPage.css";
+import React, { Component } from 'react';
+import {Redirect} from "react-router-dom";
 
-export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  function validateForm() {
-    return email.length > 0 && password.length > 0;
+export default class Login extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      email: '',
+      password: '',
+      redirect: false
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.setEmail = this.setEmail.bind(this);
+    this.setPassword = this.setPassword.bind(this);
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  setEmail (event){
+    this.setState({
+      email: event.target.value
+    })
+  }
+  setPassword (event){
+    this.setState({
+      password: event.target.value
+    })
   }
 
+  validateForm() {
+    console.log(this.state.email.length >= 2 && this.state.password.length >= 2)
+    return this.state.email.length >= 2 && this.state.password.length >= 2;
+  }
+
+  renderRedirect() {
+      if (this.state.redirect) {
+          return <Redirect to='/quizselection' />
+      }
+  }
+
+  handleSubmit(event) {
+    event.preventDefault(); 
+    this.setState({
+      redirect: true,
+    });
+  }
+
+render() {
   return (
     <div className="loginform">
-      <Form onSubmit={handleSubmit}>
+      {this.renderRedirect()}
+      <Form onSubmit={this.handleSubmit}>
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email<br/></Form.Label>
           <Form.Control
             autoFocus
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={this.state.email}
+            onChange={this.setEmail}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
           <Form.Label>Password<br/></Form.Label>
           <Form.Control
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={this.state.password}
+            onChange={this.setPassword}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
+        <Button block size="lg" type="submit" disabled={!this.validateForm()}>
           Login
         </Button>
       </Form>
     </div>
   );
+}
 }

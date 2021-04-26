@@ -1,11 +1,18 @@
+import React from 'react';
 import './App.css';
-import LoginPage from './components/LoginPage'
+import {BrowserRouter as Router,} from "react-router-dom";
+import Container from './components/Container';
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <LoginPage />
+    <Router>
+      <div>
+      <Container />
     </div>
+    </Router>
   );
 }
 

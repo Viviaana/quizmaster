@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Parisienne|Prata|Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+/* font-family: 'Pacifico', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Yellowtail', cursive; */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-image: linear-gradient(to right, #faa7a1 , #e06c62);
+}
+
+h1{
+  font-family: 'Libre Baskerville', serif;
+  font-size: 50px;
+  color: #2b3d50;
+}
+
+.colourboxes{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.darkbluecontainer{
+  display: flex;
+  align-items: flex-end;
+  background-color: #39516A;
+  width: 800px;
+  height: 520px;
+}
+.lightbluecontainer{
+  display: flex;
+  align-items: flex-end;
+  background-color: #799CA7;
+  width: 750px;
+  height:460px;
+  box-shadow: border 5px 5px black;
+}
+
+
+.logincontainer{
+  background-color: #EDD6C6;
+  width: 700px;
+  height:400px;
+}
+
+.loginform {
+  padding: 20px 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.loginform form {
+  margin: 0 auto;
+  max-width: 320px;
+}
+
+.loginform Button{
+    margin: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: #39516A;
+    color: white;
+    border-radius: 10px;
+}
+
+button:disabled, button[disabled]{
+  margin: 10px;
+  width: 100px;
+  height: 40px;
+  background-color: #727475;
+  color: rgb(197, 197, 197);
+  border-radius: 10px;
+}
+
+.loginform input{
+  margin: 8px
+}

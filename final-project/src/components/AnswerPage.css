@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    overflow: scroll;
+  }
+  
+  
+  .quiz{
+    width: 90%;
+    height:auto;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 25px;
+    background-color: #e2c8b6;  
+    padding: 5px
+  }
+
+  .question{
+    color: #2b3d50;
+    font-size: 20px;
+    padding-left: 30px
+  }
+
+  .answergrid{
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      padding-left: 40px;
+      padding-top: 10px;
+  }
+
+  ul{
+    list-style-type: none;
+  }

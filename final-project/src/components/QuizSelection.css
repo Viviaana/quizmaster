@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Parisienne|Prata|Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&family=Roboto+Slab:wght@500&display=swap');
 
-/* font-family: 'Pacifico', cursive;
-font-family: 'Great Vibes', cursive;
-font-family: 'Yellowtail', cursive; */
 
 * {
   box-sizing: border-box;
@@ -11,43 +9,65 @@ font-family: 'Yellowtail', cursive; */
 
 body {
   margin: 0;
-  background-image: linear-gradient(to right, #faa7a1 , #e06c62);
+  overflow: scroll;
 }
 
-h1{
-  font-family: 'Libre Baskerville', serif;
-  font-size: 50px;
+
+.quizlist{
+  width: 90%;
+  height:auto;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 25px;
+  background-color: #e2c8b6;  
+}
+
+.title{
+  height: 100px;
+  width: 100%;
+}
+
+.category{
+  height: 30px;
+  width: 100%;
+  margin-top: 50px;
+  margin-left: 12px;
   color: #2b3d50;
-  text-align: center;
 }
 
-.colourboxes{
-  display: flex;
-  align-items:center;
-  justify-content: center;
-  height: 100vh;
+.cardlist{
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: auto;
+  width: 100%;
+  place-self: center;
+  margin-left: 20px;
 }
 
-.darkbluecontainer{
-  display: flex;
-  align-items: flex-end;
+.quizcard{
+  margin: 15px;
+  place-self: center;
+}
+
+.quizcard img{
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  margin-bottom: 0;
+  border-radius: 10px 10px 0px 0px;
+  place-self: center;
+}
+
+.quizcard button{
+  border-radius: 0px 0px 10px 10px;
+  width: 300px;
+  height: 40px;
+  margin-top: 0;
+  padding-top:0;
   background-color: #39516A;
-  width: 800px;
-  height: 520px;
-}
-.lightbluecontainer{
-  display: flex;
-  align-items: flex-end;
-  background-color: #799CA7;
-  width: 750px;
-  height:460px;
-  box-shadow: border 5px 5px black;
-}
-
-
-.logincontainer{
-  background-color: #EDD6C6;
-  width: 700px;
-  height:400px;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  font-size: 18px;
+  place-self: center;
 }
 

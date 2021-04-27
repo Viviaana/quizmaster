@@ -1,80 +1,84 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./LoginPage.css";
-import React, { Component } from 'react';
-import {Redirect} from "react-router-dom";
-
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 export default class Login extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      email: '',
-      password: '',
-      redirect: false
-    }
+      email: "",
+      password: "",
+      redirect: false,
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setEmail = this.setEmail.bind(this);
     this.setPassword = this.setPassword.bind(this);
   }
 
-  setEmail (event){
+  setEmail(event) {
     this.setState({
-      email: event.target.value
-    })
+      email: event.target.value,
+    });
   }
-  setPassword (event){
+  setPassword(event) {
     this.setState({
-      password: event.target.value
-    })
+      password: event.target.value,
+    });
   }
 
   validateForm() {
-    console.log(this.state.email.length >= 2 && this.state.password.length >= 2)
-    return this.state.email.length >= 2 && this.state.password.length >= 2;
+    return this.state.email.length >= 5 && this.state.password.length >= 5;
   }
 
   renderRedirect() {
-      if (this.state.redirect) {
-          return <Redirect to='/quizselection' />
-      }
+    if (this.state.redirect) {
+      return <Redirect to="/quizselection" />;
+    }
   }
 
   handleSubmit(event) {
-    event.preventDefault(); 
+    event.preventDefault();
     this.setState({
       redirect: true,
     });
   }
 
-render() {
-  return (
-    <div className="loginform">
-      {this.renderRedirect()}
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Group size="lg" controlId="email">
-          <Form.Label>Email<br/></Form.Label>
-          <Form.Control
-            autoFocus
-            type="email"
-            value={this.state.email}
-            onChange={this.setEmail}
-          />
-        </Form.Group>
-        <Form.Group size="lg" controlId="password">
-          <Form.Label>Password<br/></Form.Label>
-          <Form.Control
-            type="password"
-            value={this.state.password}
-            onChange={this.setPassword}
-          />
-        </Form.Group>
-        <Button block size="lg" type="submit" disabled={!this.validateForm()}>
-          Login
-        </Button>
-      </Form>
-    </div>
-  );
-}
+  render() {
+    return (
+      <div className="loginform">
+        {this.renderRedirect()}
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Group size="lg" controlId="email">
+            <Form.Label>
+              Email
+              <br />
+            </Form.Label>
+            <Form.Control
+              autoFocus
+              type="email"
+              value={this.state.email}
+              onChange={this.setEmail}
+            />
+          </Form.Group>
+          <Form.Group size="lg" controlId="password">
+            <Form.Label>
+              Password
+              <br />
+            </Form.Label>
+            <Form.Control
+              type="password"
+              value={this.state.password}
+              onChange={this.setPassword}
+            />
+          </Form.Group>
+          <Button block size="lg" type="submit" disabled={!this.validateForm()}>
+            Login
+          </Button>
+        </Form>
+      </div>
+    );
+  }
 }

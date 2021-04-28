@@ -23,7 +23,7 @@ function Container({ location }) {
           <Switch location={location}>
             <Route path="/login" component={LoginPage} />
             <Route path="/quizselection" component={QuizSelection} />
-            <Route path="/quizpage" component={QuizPage} />
+            <Route path="/quizpage/:quizID/:quizName" component={QuizPage} />
             <Route path="/answerpage" component={AnswerPage} />
             <Route exact path="/" component={Homepage} />
           </Switch>

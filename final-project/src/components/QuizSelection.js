@@ -7,10 +7,12 @@ import history3 from "./images/Headers/history3.jpg";
 import history4 from "./images/Headers/history4.jpg";
 import { Link } from "react-router-dom";
 
+
 export class QuizSelection extends Component {
   render() {
     return (
       <div className="page">
+        {this.getQuizzes}
         <Header />
 
         <div className="quizlist">

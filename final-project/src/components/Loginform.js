@@ -12,6 +12,8 @@ export default class Login extends Component {
       email: "",
       password: "",
       redirect: false,
+      errorMessage: '', 
+      user: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setEmail = this.setEmail.bind(this);
@@ -41,10 +43,32 @@ export default class Login extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({
-      redirect: true,
-    });
+      fetch('http://localhost:8081/users?email=' + this.state.email)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          user: Array.from(data)
+        })  
+      }).then(f => {this.checkCredentials()}).catch(err => {
+        this.setState({
+          errorMessage: 'Invalid Email or password'
+        })
+      });    
   }
+  checkCredentials(){
+    console.log(this.state.user)
+
+    if (this.state.user[0].email === this.state.email && this.state.user[0].password === this.state.password){
+      this.setState({
+        redirect: true,
+      });
+    } else {
+      this.setState({
+        errorMessage: 'Invalid Email or password'
+      })
+    }
+  }
+
 
   render() {
     return (
@@ -78,6 +102,7 @@ export default class Login extends Component {
             Login
           </Button>
         </Form>
+        <h2>{this.state.errorMessage}</h2>
       </div>
     );
   }

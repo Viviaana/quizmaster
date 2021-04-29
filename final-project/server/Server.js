@@ -17,6 +17,7 @@ app.get("/", function (req, res) {
   res.send("hello");
 });
 
+//Pulling the quizzes from the database, title and image only, no questions
 app.get("/quizzes", function (req, res) {
   const client = new MongoClient(url, { useNewUrlParser: true });
   const dbName = "Quizzes";
@@ -34,6 +35,7 @@ app.get("/quizzes", function (req, res) {
   });
 });
 
+//Pulling the questions and answers from the database using the quiz ID
 app.get("/questions", function (req, res) {
   const client = new MongoClient(url, { useNewUrlParser: true });
   const id = req.query.id;
@@ -56,16 +58,18 @@ app.get("/questions", function (req, res) {
   });
 });
 
+//Pulling the users from the database
 app.get("/users", function (req, res) {
+  const email = req.query.email;
   const client = new MongoClient(url, { useNewUrlParser: true });
   const dbName = "Users";
   client.connect(function (err) {
     assert.equal(null, err);
-    console.log("Connected successfully to login server");
+    console.log("Connected successfully to user server");
 
     const db = client.db(dbName);
     db.collection("Users")
-      .find().toArray()
+      .find({email : email}).toArray()
       .then((results) => {
         res.send(results);
       }).catch((err) => {console.log(err)});

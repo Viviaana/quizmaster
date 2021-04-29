@@ -4,8 +4,7 @@ const MongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
 const cors = require('cors');
 
-const url =
-  "mongodb+srv://Katie:GimhB123@users.kidr1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const url = require("./config/keys").mongoURI;
 
 
 app.listen(8081, function () {

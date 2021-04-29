@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./QuizPage.css";
 import Header from "./Header";
 import Answer from "./Answer";
+import { Link } from "react-router-dom";
 
 export default class AnswerPage extends Component {
   state={
@@ -27,6 +28,7 @@ export default class AnswerPage extends Component {
         <div className="quiz">
           <h1>{this.state.title}</h1>
           <Answer questions={this.state.questions}/>
+          <Link to={'/quizselection'}>Choose Another Quiz</Link>
           </div>
       </div>
     );

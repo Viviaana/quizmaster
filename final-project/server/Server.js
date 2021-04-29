@@ -23,7 +23,7 @@ app.get("/quizzes", function (req, res) {
   const dbName = "Quizzes";
   client.connect(function (err) {
     assert.equal(null, err);
-    console.log("Connected successfully to server");
+    console.log("Connected successfully to quiz server");
 
     const db = client.db(dbName);
     db.collection("Quizzes")
@@ -42,7 +42,7 @@ app.get("/questions", function (req, res) {
   const dbName = "Quizzes";
   client.connect(function (err) {
     assert.equal(null, err);
-    console.log("Connected successfully to server");
+    console.log("Connected successfully to question server");
 
     const db = client.db(dbName);
     var questions = db.collection("Questions");
@@ -56,3 +56,21 @@ app.get("/questions", function (req, res) {
     client.close();
   });
 });
+
+app.get("/users", function (req, res) {
+  const client = new MongoClient(url, { useNewUrlParser: true });
+  const dbName = "Users";
+  client.connect(function (err) {
+    assert.equal(null, err);
+    console.log("Connected successfully to login server");
+
+    const db = client.db(dbName);
+    db.collection("Users")
+      .find().toArray()
+      .then((results) => {
+        res.send(results);
+      }).catch((err) => {console.log(err)});
+    client.close();
+  });
+});
+

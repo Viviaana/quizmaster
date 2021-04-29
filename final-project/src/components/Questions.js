@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+
 
 export default function Question(props) {
   const question = props.questions.map((question, index) => (

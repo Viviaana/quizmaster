@@ -1,26 +1,33 @@
 import React, { Component } from "react";
-import "./AnswerPage.css";
+import "./QuizPage.css";
 import Header from "./Header";
+import Answer from "./Answer";
 
 export default class AnswerPage extends Component {
+  state={
+    questions: [], 
+    title: ""
+  }
+
+  
+  getQuestions(){
+    this.setState({title: this.props.match.params.quizName})
+  fetch('http://localhost:8081/questions?id='+ this.props.match.params.quizID)
+  .then(response => response.json())
+  .then(data => this.setState({questions : Array.from(data)})).then(e => console.log(this.state.questions)).catch(err => console.log(err));
+  }
+
+  componentDidMount(){
+    this.getQuestions()
+  }
   render() {
     return (
       <div className="page">
-        <Header />
+         <Header />
         <div className="quiz">
-          <h1>Classic Literature</h1>
-          <div className="question">
-            <h2>1. What is the question?</h2>
-            <div className="answergrid">
-              <ul>
-                <li>A. Yes</li>
-                <li>B. No</li>
-                <li>C. Maybe</li>
-                <li>D. Definitely</li>
-              </ul>
-            </div>
+          <h1>{this.state.title}</h1>
+          <Answer questions={this.state.questions}/>
           </div>
-        </div>
       </div>
     );
   }

@@ -7,7 +7,18 @@ import Questions from "./Questions";
 export default class QuizPage extends Component {
   state={
     questions: [], 
-    title: ""
+    title: "",
+    pathName: ""
+  }
+
+  getURL(){
+    var pathArray = window.location.pathname.split('/');
+    var newPathname = "";
+      for (var i = 2; i < pathArray.length; i++) {
+      newPathname += "/";
+      newPathname += pathArray[i];
+    this.setState({pathName: newPathname})
+}
   }
 
   getQuestions(){
@@ -17,8 +28,10 @@ export default class QuizPage extends Component {
   .then(data => this.setState({questions : Array.from(data)})).then(e => console.log(this.state.questions)).catch(err => console.log(err));
   }
 
+
   componentDidMount(){
     this.getQuestions()
+    this.getURL()
   }
   render() {
     return (
@@ -27,6 +40,7 @@ export default class QuizPage extends Component {
         <div className="quiz">
           <h1>{this.state.title}</h1>
           <Questions questions={this.state.questions}/>
+          <Link to={'/answerpage'+ this.state.pathName}>See Answers</Link>
           </div>
       </div>
     );

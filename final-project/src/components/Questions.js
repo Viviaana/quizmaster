@@ -1,12 +1,12 @@
 import React from "react";
-
+import "./QuizPage.css";
 
 export default function Question(props) {
   const question = props.questions.map((question, index) => (
       <div className="question">
-        <h2>{question.question}</h2>
+        <p><b>{question.question}</b></p>
         <div className="answergrid">
-          <ul>
+          <ul className={props.view}>
             {question.answers.map(answer => 
             <li>{answer}</li>
             )}

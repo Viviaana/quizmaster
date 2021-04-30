@@ -9,6 +9,7 @@ import QuizSelection from "./QuizSelection";
 import AnswerPage from "./AnswerPage";
 import QuizPage from "./QuizPage";
 import Homepage from "./Homepage";
+import EditQuiz from "./EditQuiz";
 import {
     TransitionGroup
 } from 'react-transition-group'
@@ -24,6 +25,7 @@ function Container({ location }) {
             <Route path="/login" component={LoginPage} />
             <Route path="/quizselection" component={QuizSelection} />
             <Route path="/quizpage/:quizID/:quizName" component={QuizPage} />
+            <Route path="/editquizpage/:quizID/:quizName" component={EditQuiz} />
             <Route path="/answerpage/:quizID/:quizName" component={AnswerPage} />
             <Route exact path="/" component={Homepage} />
           </Switch>

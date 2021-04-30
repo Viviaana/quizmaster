@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./LoginPage.css";
-import Form from "./Loginform";
+import Login from "./Loginform";
 import Header from "./Header";
 
 export class LoginPage extends Component {
@@ -13,7 +13,7 @@ export class LoginPage extends Component {
             <div className="lightbluecontainer">
               <div className="logincontainer">
                 <h1>Sign In</h1>
-                <Form setRedirect={this.setRedirect} />
+                <Login setRedirect={this.setRedirect} />
               </div>
             </div>
           </div>

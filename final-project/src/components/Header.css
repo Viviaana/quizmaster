@@ -28,3 +28,30 @@ h2{
     max-height: 50px;
 }
 
+.title h2{
+    width: 400px
+}
+
+
+
+.title a{
+    text-decoration: none;
+    color: #f5e5da !important;
+    width: 400px;
+    margin: 0;
+}
+
+
+.logout{
+    float: right;
+    margin: 0;
+}
+
+.logout a{
+    text-decoration: none;
+    color: #f5e5da !important;
+    margin: 0;
+    padding-right: 20px;
+    font-size: 20px;
+
+}

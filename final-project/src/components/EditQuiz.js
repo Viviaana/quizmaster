@@ -1,15 +1,25 @@
 import React, { Component } from "react";
-import "./QuizPage.css";
+import "./EditQuiz.css";
 import Header from "./Header";
-import Answer from "./Answer";
+import Edit from "./Edit";
 import { Link } from "react-router-dom";
 
-export default class AnswerPage extends Component {
+export default class EditQuiz extends Component {
   state={
     questions: [], 
-    title: ""
+    title: "",
+    pathName: ""
   }
 
+  getURL(){
+    var pathArray = window.location.pathname.split('/');
+    var newPathname = "";
+      for (var i = 2; i < pathArray.length; i++) {
+      newPathname += "/";
+      newPathname += pathArray[i];
+    this.setState({pathName: newPathname})
+}
+  }
   
   getQuestions(){
     this.setState({title: this.props.match.params.quizName})
@@ -20,6 +30,7 @@ export default class AnswerPage extends Component {
 
   componentDidMount(){
     this.getQuestions()
+    this.getURL()
   }
   render() {
     return (
@@ -27,8 +38,9 @@ export default class AnswerPage extends Component {
          <Header />
         <div className="quiz">
           <h1>{this.state.title}</h1>
-          <Answer questions={this.state.questions}/>
+          <Edit questions={this.state.questions}/>
           <div className="links">
+          <Link to={'/quizpage'+ this.state.pathName}>Update Quiz</Link>
           <Link to={'/quizselection'}>Quiz Selection</Link>
           </div>
           </div>

@@ -58,6 +58,7 @@ app.get("/questions", function (req, res) {
   });
 });
 
+
 //Pulling the users from the database
 app.get("/users", function (req, res) {
   const email = req.query.email;
@@ -76,4 +77,32 @@ app.get("/users", function (req, res) {
     client.close();
   });
 });
+
+app.post("/updatequestions", function (req, res) {
+  const data = req.body
+  const client = new MongoClient(url, { useNewUrlParser: true });
+  const dbName = "Quizzes";
+  client.connect(function (err) {
+    assert.equal(null, err);
+    console.log("Connected successfully to question server");
+
+    const db = client.db(dbName);
+    var questions = db.collection("Questions");
+    questions.updateOne(
+      {"_id": data.questionID},
+      { 
+        "quizID": data.quizID,
+        "question": data.question,
+        "number": data.number,
+        "hint": data.hint,
+        "answer": data.answers,
+        "correct": data.correct
+      },
+      {
+        upsert: true
+      }
+      )
+      });
+    client.close();
+  });
 

@@ -3,8 +3,10 @@ import Button from "react-bootstrap/Button";
 import "./LoginPage.css";
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import AppContext from './AppContext';
 
 export default class Login extends Component {
+  
   constructor(props) {
     super(props);
 
@@ -20,6 +22,7 @@ export default class Login extends Component {
     this.setPassword = this.setPassword.bind(this);
   }
 
+  
   setEmail(event) {
     this.setState({
       email: event.target.value,
@@ -37,9 +40,11 @@ export default class Login extends Component {
 
   renderRedirect() {
     if (this.state.redirect) {
-      return <Redirect to="/quizselection" />;
-    }
-  }
+      return <Redirect to={{
+        pathname: '/quizselection',
+        state: { permissions: this.state.user[0].permission }
+    }}/>
+    }}
 
   handleSubmit(event) {
     event.preventDefault();
@@ -56,8 +61,6 @@ export default class Login extends Component {
       });    
   }
   checkCredentials(){
-    console.log(this.state.user)
-
     if (this.state.user[0].email === this.state.email && this.state.user[0].password === this.state.password){
       this.setState({
         redirect: true,
@@ -71,7 +74,12 @@ export default class Login extends Component {
 
 
   render() {
+    const value = {
+      role: this.state.user,
+      setRole: this.handleSubmit
+    }
     return (
+      <AppContext.Provider value={value}>
       <div className="loginform">
         {this.renderRedirect()}
         <Form onSubmit={this.handleSubmit}>
@@ -104,6 +112,7 @@ export default class Login extends Component {
         </Form>
         <h2>{this.state.errorMessage}</h2>
       </div>
+      </AppContext.Provider>
     );
   }
 }

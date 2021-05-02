@@ -14,6 +14,8 @@ import {
     TransitionGroup
 } from 'react-transition-group'
 
+//Setting up the navigation for the entire app
+
 
 function Container({ location }) {
     return (

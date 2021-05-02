@@ -27,7 +27,7 @@ renderRedirect() {
   getQuizzes(){
   fetch('http://localhost:8081/quizzes')
   .then(response => response.json())
-  .then(data => this.setState({quizzes : Array.from(data)})).catch(err => console.log(err));
+  .then(data => this.setState({quizzes : Array.from(data)})).then(e => console.log(this.state.quizzes)).catch(err => console.log(err));
   }
 
 

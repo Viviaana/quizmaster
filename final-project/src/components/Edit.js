@@ -2,10 +2,11 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
+//The form allowing users to update existing questions and add or delete questions and answers
 export default function Edit(props) {
   
   const updateQuestion = () => {
-    //this is where I would gather the updated question details in order to pass through to the database
+    //This is where I would gather the updated question details in order to pass through to the database
   }
 
   const editQuestion = props.questions.map((question, index) => (

@@ -4,6 +4,8 @@ import Header from "./Header";
 import Edit from "./Edit";
 import { Link } from "react-router-dom";
 
+//Edit page allowing admin users to view, edit and add or delete 
+
 export default class EditQuiz extends Component {
   state={
     questions: [], 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./QuizPage.css";
 import Header from "./Header";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Questions from "./Questions";
 
 export default class QuizPage extends Component {
@@ -61,7 +61,7 @@ export default class QuizPage extends Component {
             <Link
               to={{
                 pathname: "/answerpage"+ this.state.pathName,
-                state: { permissions: this.state.user[0].permission },
+                state: { permissions: this.state.permission },
               }}
             >
               See Answers
@@ -69,12 +69,12 @@ export default class QuizPage extends Component {
             <Link
               to={{
                 pathname: "/editquizpage"+ this.state.pathName,
-                state: { permissions: this.state.user[0].permission },
+                state: { permissions: this.state.permission },
               }}>Edit Quiz</Link>
             <Link
               to={{
                 pathname: "/quizselection",
-                state: { permissions: this.state.user[0].permission },
+                state: { permissions: this.state.permission },
               }}>Quiz Selection</Link>
           </div>
         </div>

@@ -3,6 +3,8 @@ import './Header.css';
 import LetterQ from './images/Headers/letterQ.jpg'
 import { Link } from "react-router-dom";
 
+//Navigation bar at the top of the screen allowing for simple logo changes as this one component will appear each time 
+
 export default function Header() {
   return (
     <div className = "bar">

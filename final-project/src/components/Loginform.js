@@ -5,6 +5,8 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import AppContext from './AppContext';
 
+//The form component for the login page allowing users to enter their credentials
+
 export default class Login extends Component {
   
   constructor(props) {

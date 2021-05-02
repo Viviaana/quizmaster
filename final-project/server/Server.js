@@ -78,6 +78,7 @@ app.get("/users", function (req, res) {
   });
 });
 
+//Updating the questions from the edit quiz page
 app.post("/updatequestions", function (req, res) {
   const data = req.body
   const client = new MongoClient(url, { useNewUrlParser: true });

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+//Creating a card for eaqch quiz so users can see the title and a relevant image
+
 export default function Card(props) {
   const cards = props.quizzes.map((quiz, index) => (
     <div className="quizcard" key={quiz._id}>

@@ -4,6 +4,9 @@ import Header from "./Header";
 import Answer from "./Answer";
 import { Link } from "react-router-dom";
 
+//The page that shows the questions with just the correct answer visible, not accessible for viewonly users
+
+
 export default class AnswerPage extends Component {
   state={
     questions: [], 

@@ -1,6 +1,8 @@
 import React from "react";
 import "./QuizPage.css";
 
+//This component generates each question with the matching answers, hiding answers if user is set to Restricted 
+
 export default function Question(props) {
   const question = props.questions.map((question, index) => (
       <div className="question">

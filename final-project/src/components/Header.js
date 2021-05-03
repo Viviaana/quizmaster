@@ -11,7 +11,7 @@ export default function Header() {
         <div className = "logo">
         <img src={LetterQ} className = "logoimg" alt="logo" />
         </div>
-      <div className = "title">
+      <div className = "headertitle">
       <Link to={'/'}><h2>Quizmaster</h2></Link>
       </div>
       <div className = "logout">

@@ -18,7 +18,7 @@ h2{
     height: 60px;
 }
 
-.title{
+.headertitle{
     padding-left: 10px;
     padding-top: 2px;
     color: #f5e5da !important;
@@ -28,13 +28,13 @@ h2{
     max-height: 50px;
 }
 
-.title h2{
+.headertitle h2{
     width: 400px
 }
 
 
 
-.title a{
+.headertitle a{
     text-decoration: none;
     color: #f5e5da !important;
     width: 400px;

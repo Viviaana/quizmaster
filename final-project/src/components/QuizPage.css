@@ -73,3 +73,7 @@ ul {
 ul.Restricted {
   display: none;
 }
+
+.Restricted {
+  display: none;
+}

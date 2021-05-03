@@ -11,7 +11,7 @@ font-family: 'Yellowtail', cursive; */
 
 body {
   margin: 0;
-  background-image: linear-gradient(to right, #faa7a1 , #e06c62);
+  background-image: linear-gradient(to right, #f1a19a , #f07b70);
 }
 
 h1{
@@ -19,6 +19,7 @@ h1{
   font-size: 50px;
   color: #2b3d50;
   text-align: center;
+  padding: 10px
 }
 
 h2{
@@ -27,11 +28,89 @@ h2{
 
 
 .introbox{
+  display: flex;
+  flex-direction:column;
   text-align: center;
   background-color: #EDD6C6;
   height: 80vh;
   width: 90%;
   border-radius: 10px;
-  margin: auto
+  margin: auto;
+  margin-top: 25px;
+  justify-content: space-around;
+}
+
+
+.loginbutton a {
+  float: center;
+  color: white;
+  background-color: #39516A;
+  text-align: center;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border: 2px white solid;
+  border-radius: 15px;
+  width: 175px;
+}
+
+.loginbutton a:hover {
+  background-color: #9CB2CA;
+  color: black;
+}
+
+.loginbutton a.active {
+  background-color: #4caf50;
+  color: black;
+}
+
+.icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  width: 100%;
+  margin-top: 70px;
+}
+
+.linked a{
+  padding: 20px;
+  color: #799CA7;
+  font-size: 60px;
+}
+
+.linked a:hover{
+  padding: 20px;
+  color: #FC8F88;
+  font-size: 60px;;
+}
+
+.git a{
+  padding: 20px;
+  color: #799CA7;
+  font-size: 60px;
+}
+
+.git a:hover{
+  padding: 20px;
+  color: #39516A;
+  font-size: 60px;;
+}
+
+.insta a{
+  padding: 20px;
+  color: #799CA7;
+  font-size: 60px;
+}
+
+.insta a:hover{
+  padding: 20px;
+  color: #EA776D;
+  font-size: 60px;;
+}
+
+.btnContainer{
+display: flex;
+justify-content: center;
 }
 

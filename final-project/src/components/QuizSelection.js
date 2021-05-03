@@ -7,6 +7,7 @@ import { Redirect } from "react-router-dom";
 export class QuizSelection extends Component {
   constructor(props) {
     super(props);
+    //adding permission null as a default so the state isn't empty when the page loads if the normal route is ignored
     var permission;
     if(this.props.location.state && this.props.location.state.permissions){
       permission = this.props.location.state.permissions  
@@ -32,7 +33,7 @@ renderRedirect() {
 
 
   componentDidMount(){
-    this.getQuizzes()
+    this.getQuizzes();
   }
 
   render() {

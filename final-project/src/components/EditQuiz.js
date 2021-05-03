@@ -2,16 +2,37 @@ import React, { Component } from "react";
 import "./EditQuiz.css";
 import Header from "./Header";
 import Edit from "./Edit";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 //Edit page allowing admin users to view, edit and add or delete 
 
 export default class EditQuiz extends Component {
-  state={
-    questions: [], 
-    title: "",
-    pathName: ""
+  constructor(props) {
+    super(props);
+        //adding permission null as a default so the state isn't empty when the page loads if the normal route is ignored
+        var permission;
+        if(this.props.location.state && this.props.location.state.permissions){
+          permission = this.props.location.state.permissions  
+        } else{
+          permission = null
+        } 
+    this.state={
+      questions: [], 
+      title: "",
+      pathName: "",
+      permissions: permission
+    }
+}
+
+renderRedirect() {
+  if (this.state.permissions === null) {
+    return <Redirect to='/'/>
   }
+  if (this.state.permissions === "View" || this.state.permissions === "Restricted") {
+    return <Redirect to={{
+      pathname: "/quizselection",
+      state: { permissions: this.state.permissions }}} />
+  }}
 
   getURL(){
     var pathArray = window.location.pathname.split('/');
@@ -37,6 +58,7 @@ export default class EditQuiz extends Component {
   render() {
     return (
       <div className="page">
+        {this.renderRedirect()}
          <Header />
         <div className="quiz">
           <h1>{this.state.title}</h1>

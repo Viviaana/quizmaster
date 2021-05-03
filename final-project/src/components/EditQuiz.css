@@ -35,4 +35,37 @@
     list-style-type: none;
   }
 
+  .forminputquestions{
+    width: 100%;
+    height: 30px;
+    font-size: 18px
+  }
+
+  .forminputanswers{
+    width: 500px;
+    height: 30px;
+    font-size: 18px
+  }
+
+  .updatebutton a {
+    float: center;
+    color: white;
+    background-color: #39516A;
+    text-align: center;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border: 2px white solid;
+    border-radius: 15px;
+    width: 175px;
+  }
   
+  .updatebutton a:hover {
+    background-color: #9CB2CA;
+    color: black;
+  }
+  
+  .updatebutton a.active {
+    background-color: #4caf50;
+    color: black;
+  }

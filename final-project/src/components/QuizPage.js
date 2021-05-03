@@ -7,11 +7,18 @@ import Questions from "./Questions";
 export default class QuizPage extends Component {
   constructor(props) {
     super(props);
+        //adding permission null as a default so the state isn't empty when the page loads if the normal route is ignored
+        var permission;
+        if(this.props.location.state && this.props.location.state.permissions){
+          permission = this.props.location.state.permissions  
+        } else{
+          permission = null
+        } 
     this.state = {
       questions: [],
       title: "",
       pathName: "",
-      permissions: this.props.location.state.permissions,
+      permissions: permission,
     };
   }
 
@@ -46,11 +53,13 @@ export default class QuizPage extends Component {
     this.getQuestions();
     this.getURL();
   }
+
+
   render() {
     return (
       <div className="page">
-        {this.renderRedirect()}
         <Header />
+        {this.renderRedirect()}
         <div className="quiz">
           <h1>{this.state.title}</h1>
           <Questions
@@ -58,23 +67,23 @@ export default class QuizPage extends Component {
             view={this.state.permissions}
           />
           <div className="links">
-            <Link
+            <Link className={this.state.permissions}
               to={{
                 pathname: "/answerpage"+ this.state.pathName,
-                state: { permissions: this.state.permission },
+                state: { permissions: this.state.permissions },
               }}
             >
               See Answers
             </Link>
-            <Link
-              to={{
+            <Link className={this.state.permissions}
+              to={{ 
                 pathname: "/editquizpage"+ this.state.pathName,
-                state: { permissions: this.state.permission },
+                state: { permissions: this.state.permissions },
               }}>Edit Quiz</Link>
             <Link
               to={{
                 pathname: "/quizselection",
-                state: { permissions: this.state.permission },
+                state: { permissions: this.state.permissions },
               }}>Quiz Selection</Link>
           </div>
         </div>

@@ -13,23 +13,23 @@ export default function Edit(props) {
     <div className="question">
       <Form.Group controlId="formQuestion">
         <Form.Label>Edit Question</Form.Label><br />
-        <Form.Control size="lg" type="text" value={question.question} />
+        <Form.Control className='forminputquestions' size="lg" type="text" value={question.question} />
       </Form.Group>
       <div className="answerlist">
       <Form.Group controlId="formAnswers">
         <Form.Label>Edit Answers</Form.Label>
         {question.answers.map((answer) => (
             <ul>
-        <li><Form.Control size="lg" type="text" value= {answer} /></li>
+        <li><Form.Control className='forminputanswers' size="lg" type="text" value= {answer} /></li>
         </ul>
         ))}
         
       </Form.Group>
       <Form.Group controlId="formQuestion">
         <Form.Label>Edit Hint</Form.Label><br />
-        <Form.Control size="lg" type="text" value={question.hint} />
+        <Form.Control className='forminputquestions' size="lg" type="text" value={question.hint} />
       </Form.Group>
-      <Button block size="lg" type="submit" onSubmit={updateQuestion()}>Update</Button>
+      <Button className='updatebutton' block size="lg" type="submit" onSubmit={updateQuestion()}>Update</Button>
       </div>
       </div>
   ));
